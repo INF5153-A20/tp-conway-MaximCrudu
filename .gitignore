@@ -1,0 +1,8 @@
+.idea
+*.iml
+target
+*~
+*.jar
+*.png
+*.pdf
+.java-version

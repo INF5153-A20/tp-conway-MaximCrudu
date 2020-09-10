@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="22px" preserveAspectRatio="none" style="width:22px;height:22px;" version="1.1" viewBox="0 0 22 22" width="22px" zoomAndPan="magnify"><defs/><g><!--MD5=[f0a1e7e54c45306c247e97fe03f7c02a]
+@startuml
+note
+    No objects involved, only a static call.
+end note
+@enduml
+
+PlantUML version 1.2020.17beta5(Unknown compile time)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>
