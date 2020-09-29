@@ -1,7 +1,33 @@
 @startuml
 
-class Conway {
+class Main {
 	+ {static} main(args: String[])
 }
+
+class Read {
+   + {static} lireFichier()
+}
+
+class Validation {
+   + {static} validerContenu()
+}
+
+class Plateau{
+  - dimension
+  - grille [][]Cellule
+  + remplir(ligne : String)
+  - simulationVie(nbSimulations : int)
+  - afficher()
+}
+
+class Cellule{
+  - vivante : boolean
+  + siVivante(etatCell : String): boolean
+}
+
+Main --> "1" Read
+Read --> "1" Validation
+Main --> "1" Plateau
+Plateau --> "*" Cellule
 
 @enduml
