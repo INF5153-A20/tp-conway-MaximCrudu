@@ -13,7 +13,7 @@ public class JeuxDeLaVie {
                 } else if (cellule.estVivante() && voisinsVivants < 2) {
                     nouvelEtat.enregistrer(new Cellule(cellule).morte());
                 } else if (cellule.estVivante() && voisinsVivants > 3) {
-                    nouvelEtat.enregistrer(new Cellule(cellule).vivante());
+                    nouvelEtat.enregistrer(new Cellule(cellule).morte());
                 } else{
                     nouvelEtat.enregistrer(new Cellule(cellule));
                 }

@@ -36,19 +36,50 @@ public class Plateau implements Iterable<Cellule>{
         if(grille.size() <= cellule.getCoordonneeX()){
             grille.add(new ArrayList<>());
         }
-        List<Cellule> iterator = grille.get(cellule.getCoordonneeX());
-        iterator.add(cellule);
+        grille.get(cellule.getCoordonneeX()).add(cellule);
+   //     List<Cellule> iterator = grille.get(cellule.getCoordonneeX());
+   //     iterator.add(cellule);
         pointGrille.add(cellule);
     }
 
     public int getVoisinsVivants(Cellule cellule) {
         int x = cellule.getCoordonneeX();
         int y = cellule.getCoordonneeY();
-        return 3;
+        int voisinsViv = 0 ;
+        if(x > 0){
+            if (y > 0 && grille.get(x-1).get(y-1).estVivante()){
+                voisinsViv++;
+            }
+            if (grille.get(x-1).get(y).estVivante()){
+                voisinsViv++;
+            }
+            if (y+1 < grille.get(y).size() && grille.get(x-1).get(y+1).estVivante()){
+                voisinsViv ++;
+            }
+        }
+        if (y > 0 && grille.get(x).get(y-1).estVivante()){
+            voisinsViv ++;
+        }
+        if (y+1 < grille.get(y).size() && grille.get(x).get(y+1).estVivante()){
+            voisinsViv ++;
+        }
+        if (x+1 < grille.size()){
+            if (y > 0 && grille.get(x+1).get(y-1).estVivante()){
+                voisinsViv ++;
+            }
+            if (grille.get(x+1).get(y).estVivante()){
+                voisinsViv ++;
+            }
+            if (y+1 < grille.get(y).size() && grille.get(x+1).get(y+1).estVivante()) {
+                voisinsViv ++;
+            }
+        }
+        return voisinsViv;
     }
 
     public void afficher() {
         List<List<Cellule>> it_lignes= grille;
+        System.out.println(grille.size());
         for(List<Cellule> ligne: it_lignes){
             for (Cellule cellule: ligne){
                 if(cellule.estVivante()) {

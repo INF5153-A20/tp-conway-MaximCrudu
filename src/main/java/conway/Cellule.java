@@ -4,6 +4,7 @@ public class Cellule {
 
     private Coordonee emplacement;
     private boolean etatVie;
+    private Voisin voisins;
 
     public Cellule(String etat) {
         this.etatVie = verifEtat(etat);
