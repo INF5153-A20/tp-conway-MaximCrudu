@@ -17,8 +17,8 @@ public class Cellule {
 
     private boolean verifEtat(String etatCell) {
         switch(etatCell) {
-            case "_": return this.etatVie = false; //return Etat.MORTE;
-            case "X": return this.etatVie = true; //return Etat.VIVANTE;
+            case "_": return this.etatVie = false;
+            case "X": return this.etatVie = true;
             default: System.exit(2);
         }
         return false;

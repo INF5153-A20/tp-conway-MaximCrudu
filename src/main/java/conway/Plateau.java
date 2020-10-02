@@ -7,7 +7,7 @@ public class Plateau implements Iterable<Cellule>{
     private int dimension;
 //    private Cellule[][] grille;
     private List<List<Cellule>> grille = new ArrayList<>();
-    private List<Cellule> pointGrille = new ArrayList<>();
+    private List<Cellule> grillePointer = new ArrayList<>();
 
     public Plateau() {
     }
@@ -18,7 +18,7 @@ public class Plateau implements Iterable<Cellule>{
     }
 
     public Plateau(Plateau nouveau) {
-        this.pointGrille = nouveau.pointGrille;
+        this.grillePointer = nouveau.grillePointer;
         this.grille = nouveau.grille;
     }
 
@@ -27,7 +27,7 @@ public class Plateau implements Iterable<Cellule>{
         for (int y = 0; y < etatActuel.length; y++){
 //          grille[x][y] = new Cellule(new Coordonee(x, y), etatActuel[y]);
           ligne.add(new Cellule(new Coordonee(x, y), etatActuel[y]));
-          pointGrille.add(ligne.get(ligne.size()-1));
+          grillePointer.add(ligne.get(ligne.size()-1));
       }
         grille.add(ligne);
     }
@@ -39,7 +39,7 @@ public class Plateau implements Iterable<Cellule>{
         grille.get(cellule.getCoordonneeX()).add(cellule);
    //     List<Cellule> iterator = grille.get(cellule.getCoordonneeX());
    //     iterator.add(cellule);
-        pointGrille.add(cellule);
+        grillePointer.add(cellule);
     }
 
     public int getVoisinsVivants(Cellule cellule) {
@@ -95,7 +95,7 @@ public class Plateau implements Iterable<Cellule>{
 
     @Override
     public Iterator<Cellule> iterator() {
-        return this.pointGrille.iterator();
+        return this.grillePointer.iterator();
     }
 }
 

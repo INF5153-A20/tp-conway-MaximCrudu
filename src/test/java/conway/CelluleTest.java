@@ -8,6 +8,7 @@ public class CelluleTest {
 
     @Test
     public void testCelluleMeurt1(){
+
         Cellule c = new Cellule(new Coordonee(15,22),"X");
         c.meurt();
         assertTrue(c.estMorte());
