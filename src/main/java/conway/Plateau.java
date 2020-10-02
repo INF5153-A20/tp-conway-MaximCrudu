@@ -5,7 +5,6 @@ import java.util.*;
 public class Plateau implements Iterable<Cellule>{
 
     private int dimension;
-//    private Cellule[][] grille;
     private List<List<Cellule>> grille = new ArrayList<>();
     private List<Cellule> grillePointer = new ArrayList<>();
 
@@ -14,7 +13,6 @@ public class Plateau implements Iterable<Cellule>{
 
     public Plateau(int dimension) {
         this.dimension = dimension;
-//        grille = new Cellule[dimension][dimension];
     }
 
     public Plateau(Plateau nouveau) {
@@ -25,7 +23,6 @@ public class Plateau implements Iterable<Cellule>{
     public void remplir(String[] etatActuel, int x) {
         List<Cellule> ligne= new ArrayList<>();
         for (int y = 0; y < etatActuel.length; y++){
-//          grille[x][y] = new Cellule(new Coordonee(x, y), etatActuel[y]);
           ligne.add(new Cellule(new Coordonee(x, y), etatActuel[y]));
           grillePointer.add(ligne.get(ligne.size()-1));
       }
@@ -37,8 +34,6 @@ public class Plateau implements Iterable<Cellule>{
             grille.add(new ArrayList<>());
         }
         grille.get(cellule.getCoordonneeX()).add(cellule);
-   //     List<Cellule> iterator = grille.get(cellule.getCoordonneeX());
-   //     iterator.add(cellule);
         grillePointer.add(cellule);
     }
 
