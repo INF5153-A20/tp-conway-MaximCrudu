@@ -5,18 +5,21 @@ public class Cellule {
     private Coordonee emplacement;
     private boolean etatVie;
 
-    public Cellule(String etat) {
-        this.etatVie = verifEtat(etat);
-    }
+//    public Cellule(){}
+
+//    public Cellule(String etat) {
+//        this.etatVie = verifEtat(etat);
+//    }
 
     public Cellule(Coordonee emplacement, String etat) {
         this.emplacement = emplacement;
         this.etatVie = verifEtat(etat);
     }
 
-    public Cellule(Cellule nouvCell, String etat) {
-        System.out.println("Dans le constr Cellule" + etat);
-    }
+//    public Cellule(Cellule nouvCell, String etat) {
+//
+//        System.out.println("Dans le constr Cellule" + etat);
+//    }
 
     public Cellule(Cellule meme) {
         this.emplacement = meme.emplacement;
@@ -32,12 +35,12 @@ public class Cellule {
         return false;
     }
 
-    public Cellule morte() {
+    public Cellule meurt() {
         this.etatVie = false;
         return this;
     }
 
-    public Cellule vivante() {
+    public Cellule prendVie() {
         this.etatVie = true;
         return this;
     }

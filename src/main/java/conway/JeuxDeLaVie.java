@@ -9,11 +9,11 @@ public class JeuxDeLaVie {
             for (Cellule cellule : plateau) {
                 int voisinsVivants = plateau.getVoisinsVivants(cellule);
                 if (cellule.estMorte() && voisinsVivants == 3){
-                    nouvelEtat.enregistrer(new Cellule(cellule).vivante());
+                    nouvelEtat.enregistrer(new Cellule(cellule).prendVie());
                 } else if (cellule.estVivante() && voisinsVivants < 2) {
-                    nouvelEtat.enregistrer(new Cellule(cellule).morte());
+                    nouvelEtat.enregistrer(new Cellule(cellule).meurt());
                 } else if (cellule.estVivante() && voisinsVivants > 3) {
-                    nouvelEtat.enregistrer(new Cellule(cellule).morte());
+                    nouvelEtat.enregistrer(new Cellule(cellule).meurt());
                 } else{
                     nouvelEtat.enregistrer(new Cellule(cellule));
                 }
