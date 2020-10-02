@@ -5,21 +5,10 @@ public class Cellule {
     private Coordonee emplacement;
     private boolean etatVie;
 
-//    public Cellule(){}
-
-//    public Cellule(String etat) {
-//        this.etatVie = verifEtat(etat);
-//    }
-
     public Cellule(Coordonee emplacement, String etat) {
         this.emplacement = emplacement;
         this.etatVie = verifEtat(etat);
     }
-
-//    public Cellule(Cellule nouvCell, String etat) {
-//
-//        System.out.println("Dans le constr Cellule" + etat);
-//    }
 
     public Cellule(Cellule meme) {
         this.emplacement = meme.emplacement;
@@ -61,3 +50,4 @@ public class Cellule {
         return this.emplacement.getY();
     }
 }
+
