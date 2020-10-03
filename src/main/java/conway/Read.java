@@ -18,7 +18,7 @@ public class Read {
             int iter = 0;
             while (iter < dimension) {
                 String ligne = reader.readLine();
-                contenu.remplir(ligne.trim().split(" "), iter);
+                contenu.remplirPlateau(ligne.trim().split(" "), iter);
 
                 iter++;
             }

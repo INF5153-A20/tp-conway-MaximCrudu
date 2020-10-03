@@ -20,8 +20,8 @@ public class Plateau implements Iterable<Cellule>{
         this.grille = nouveau.grille;
     }
 
-    public void remplir(String[] etatActuel, int x) {
-        List<Cellule> ligne= new ArrayList<>();
+    public void remplirPlateau(String[] etatActuel, int x) {
+        List<Cellule> ligne = new ArrayList<>();
         for (int y = 0; y < etatActuel.length; y++){
           ligne.add(new Cellule(new Coordonee(x, y), etatActuel[y]));
           grillePointer.add(ligne.get(ligne.size()-1));
@@ -90,7 +90,6 @@ public class Plateau implements Iterable<Cellule>{
 
     @Override
     public Iterator<Cellule> iterator() {
-      //  return this.grillePointer.iterator();
        return Collections.unmodifiableList(grillePointer).iterator();
     }
 }
