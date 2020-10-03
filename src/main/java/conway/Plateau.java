@@ -90,7 +90,8 @@ public class Plateau implements Iterable<Cellule>{
 
     @Override
     public Iterator<Cellule> iterator() {
-        return this.grillePointer.iterator();
+      //  return this.grillePointer.iterator();
+       return Collections.unmodifiableList(grillePointer).iterator();
     }
 }
 
