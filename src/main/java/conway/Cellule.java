@@ -5,23 +5,14 @@ public class Cellule {
     private Coordonee emplacement;
     private boolean etatVie;
 
-    public Cellule(Coordonee emplacement, String etat) {
+    public Cellule(Coordonee emplacement, boolean etat) {
         this.emplacement = emplacement;
-        this.etatVie = verifEtat(etat);
+        this.etatVie = etat;
     }
 
     public Cellule(Cellule meme) {
         this.emplacement = meme.emplacement;
         this.etatVie = meme.etatVie;
-    }
-
-    private boolean verifEtat(String etatCell) {
-        switch(etatCell) {
-            case "_": return this.etatVie = false;
-            case "X": return this.etatVie = true;
-            default: System.exit(2);
-        }
-        return false;
     }
 
     public Cellule meurt() {

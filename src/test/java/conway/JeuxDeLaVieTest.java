@@ -26,8 +26,9 @@ public class JeuxDeLaVieTest {
                 "_ _ _ _ _"};
 
         Plateau p = new Plateau();
-        for (int x = 0; x < donnees.length; x++){
-            p.remplirPlateau(donnees[x].split(" "),x);
+        for (int x = 0; x < donnees.length; x++) {
+            Validation valide = new Validation(donnees[x].split(" "));
+            p.remplirPlateau(valide.getLigne(), x);
         }
 
         JeuxDeLaVie jeu = new JeuxDeLaVie(p, 1);
@@ -42,9 +43,9 @@ public class JeuxDeLaVieTest {
         System.setOut(old);
 
         String[] sortie = baos.toString().trim().split("\n");
-        for (int x=1; x<donnees.length; x++ ){
-            String ligneSortie = sortie[x].substring(0,sortie[x].length()-1);
-            assertEquals(resultat[x-1],ligneSortie);
+        for (int x = 1; x < donnees.length; x++) {
+            String ligneSortie = sortie[x].substring(0, sortie[x].length() - 1);
+            assertEquals(resultat[x - 1], ligneSortie);
         }
     }
 
@@ -65,13 +66,13 @@ public class JeuxDeLaVieTest {
                 "_ _ _ _ _"};
 
         Plateau p = new Plateau();
-        for (int x = 0; x < donnees.length; x++){
-            p.remplirPlateau(donnees[x].split(" "),x);
+        for (int x = 0; x < donnees.length; x++) {
+            Validation valide = new Validation(donnees[x].split(" "));
+            p.remplirPlateau(valide.getLigne(), x);
         }
 
         JeuxDeLaVie jeu = new JeuxDeLaVie(p, 4);
 
-        // Le bloc utilisé du site (voir PlateauTest.java)
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         PrintStream ps = new PrintStream(baos);
         PrintStream old = System.out;
@@ -81,9 +82,9 @@ public class JeuxDeLaVieTest {
         System.setOut(old);
 
         String[] sortie = baos.toString().trim().split("\n");
-        for (int x=1; x<donnees.length; x++ ){
-            String ligneSortie = sortie[x].substring(0,sortie[x].length()-1);
-            assertEquals(resultat[x-1],ligneSortie);
+        for (int x = 1; x < donnees.length; x++) {
+            String ligneSortie = sortie[x].substring(0, sortie[x].length() - 1);
+            assertEquals(resultat[x - 1], ligneSortie);
         }
     }
 
@@ -106,13 +107,13 @@ public class JeuxDeLaVieTest {
                 "_ _ _ _ _ _"};
 
         Plateau p = new Plateau();
-        for (int x = 0; x < donnees.length; x++){
-            p.remplirPlateau(donnees[x].split(" "),x);
+        for (int x = 0; x < donnees.length; x++) {
+            Validation valide = new Validation(donnees[x].split(" "));
+            p.remplirPlateau(valide.getLigne(), x);
         }
 
         JeuxDeLaVie jeu = new JeuxDeLaVie(p, 1);
 
-        // Le bloc utilisé du site (voir PlateauTest.java)
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         PrintStream ps = new PrintStream(baos);
         PrintStream old = System.out;
@@ -122,9 +123,9 @@ public class JeuxDeLaVieTest {
         System.setOut(old);
 
         String[] sortie = baos.toString().trim().split("\n");
-        for (int x=1; x<donnees.length; x++ ){
-            String ligneSortie = sortie[x].substring(0,sortie[x].length()-1);
-            assertEquals(resultat[x-1],ligneSortie);
+        for (int x = 1; x < donnees.length; x++) {
+            String ligneSortie = sortie[x].substring(0, sortie[x].length() - 1);
+            assertEquals(resultat[x - 1], ligneSortie);
         }
     }
 }

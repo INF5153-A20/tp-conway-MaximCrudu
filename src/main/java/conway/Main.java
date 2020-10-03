@@ -7,6 +7,7 @@ public class Main {
 
     /**
      * The main method, called by Maven
+     *
      * @param args the arguments given to main as an array of strings
      */
     public static void main(String[] args) {
@@ -16,14 +17,14 @@ public class Main {
         try {
             fichier = args[0];
             nbSimulation = Integer.parseInt(args[1]);
-        } catch (Exception e) { System.exit(1); }
-
-        Plateau plateau = new Plateau(Read.entrerDonnees(fichier));
-
-        if (plateau == null){
-            System.exit(2);
+        } catch (Exception e) {
+            System.exit(1);
         }
-        JeuxDeLaVie jeu = new JeuxDeLaVie(plateau ,nbSimulation);
+
+        Read configuration = new Read(fichier);
+        Plateau plateau = new Plateau(configuration.entrerDonnees());
+
+        JeuxDeLaVie jeu = new JeuxDeLaVie(plateau, nbSimulation);
         jeu.simuler();
 
         System.exit(0);
