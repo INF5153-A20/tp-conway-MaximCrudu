@@ -23,7 +23,8 @@ public class Main {
         if (plateau == null){
             System.exit(2);
         }
-        JeuxDeLaVie.simuler(plateau ,nbSimulation);
+        JeuxDeLaVie jeu = new JeuxDeLaVie(plateau ,nbSimulation);
+        jeu.simuler();
 
         System.exit(0);
     }

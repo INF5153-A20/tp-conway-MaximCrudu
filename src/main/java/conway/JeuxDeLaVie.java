@@ -2,7 +2,15 @@ package conway;
 
 public class JeuxDeLaVie {
 
-    public static void simuler(Plateau plateau, int nbSimulation) {
+    private Plateau plateau;
+    private int nbSimulation;
+
+    public JeuxDeLaVie(Plateau plateau, int nbSimulation) {
+        this.plateau = plateau;
+        this.nbSimulation = nbSimulation;
+    }
+
+    public void simuler() {
 
         for(int i = 0; i < nbSimulation; i++) {
             Plateau nouvelEtat = new Plateau();
