@@ -41,5 +41,31 @@ l'absence d'une bonne structure et modularité (manque d'encapsulation), ce code
 également difficile de le maintenir.
 
 ## Question 3
+Bien entendu, la nouvelle version est basée sur le principe de conception orienté objet. Dans ce cas, on a identifié 
+les concepts suivants: 
+- **Read**. Vise à lire le contenu du fichier entré dans les paramètres. Dans ce cas, on a voulu créer cette entité 
+pour la séparer de la classe Main. 
+- **Validation**. Cette classe est destinée à valider les caractères contenus dans le fichier. Elle reçoit les lignes 
+lues par la classe Read en validant sont contenu. À ce stade, en fonction des caractères contenus, de nouveaux tableaux
+contenant les valeurs booléenes correspondantes sont créés.
+- **Plateau**. C'est l'un des concepts de base de ce modèle. En fait, il est composé d'une liste de listes de cellules
+ qui reçoit l'information à entrer depuis la classe Read. Cette structure dynamique, à mon avis, serait un avantage dans 
+le cas d'une extension de ce programme. 
+- **Cellule**. Également l'un des concepts de base qui contient une valeur concernant l'état de vie, ainsi que ses 
+coordonnées.
+- **Coordonnee**. On a introduit ce concept afin d'identifier plus facilement l'emplacement de la cellule.
+- **JeuDeLaVie**. Le concept qui représente les règles d'affaire du jeu. 
+
+Bien sûr, je ne peux pas dire que ce modèle de conception est d'une grande qualité et sans lacunes. Tout d'abord, 
+il y a des endroits où il y a un couplage assez fort entre les classes (visible sur le diagramme de classes). Cela aura 
+un impact négatif sur la réutilisation du code.
+Deuxièmement, je ne suis pas sûr du choix correct de la structure des cellules, en fait il s'agit de la présence 
+de l'attribut de coordonnées. Bien sûr, il y a des lacunes concernant l'entité Plateau. Ici, on trouve correct le fait 
+d'implimenter l'interface Iterable qui permet d'itérer les éléments du Plateau, mais cela n'a été possible qu'après 
+avoir créé une liste de pointeurs vers la grille. Donc pour avoir accès aux données du plateau, une structure 
+supplémentaire est nécessaire. De même, j'ai des doutes concernant la classe Verification, qui me semble concerner 
+non seulement la validation, mais aussi la création d'une nouvelle structure. 
+
+
 
 ## Question 4
