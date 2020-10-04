@@ -24,10 +24,10 @@ public class Plateau implements Iterable<Cellule> {
      *
      * @return void
      */
-    public void remplirPlateau(boolean[] etatActuel, int x) {
+    public void remplirPlateau(boolean[] etatActuel, int nrLigne) {
         List<Cellule> ligne = new ArrayList<>();
         for (int y = 0; y < etatActuel.length; y++) {
-            ligne.add(new Cellule(new Coordonee(x, y), etatActuel[y]));
+            ligne.add(new Cellule(new Coordonee(nrLigne, y), etatActuel[y]));
             grillePointer.add(ligne.get(ligne.size() - 1));
         }
         grille.add(ligne);
