@@ -7,10 +7,19 @@ public class Read {
 
     private String fichier;
 
+    /**
+     * @param fichier contient le chemin et le nom du fichier inséré dans l'argument
+     */
     public Read(String fichier) {
         this.fichier = fichier;
     }
 
+    /**
+     * La méthode entrerDonnees, appelée par la classe Main
+     * Lit les données dans le fichier
+     *
+     * @return Plateau - un tableau contenant de cellules avec de valeurs booléens et ses coordonnées
+     */
     public Plateau entrerDonnees() {
 
         Plateau contenu = null;

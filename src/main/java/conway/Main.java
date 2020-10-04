@@ -1,14 +1,14 @@
 package conway;
 
 /**
- * The main class
+ * La classe Main
  */
 public class Main {
 
     /**
-     * The main method, called by Maven
+     * La méthode main, appelée par Maven
      *
-     * @param args the arguments given to main as an array of strings
+     * @param args les arguments donnés à main sous forme de tableau de string
      */
     public static void main(String[] args) {
 

@@ -64,7 +64,7 @@ public class PlateauTest {
             Validation valide = new Validation(donnees[x].split(" "));
             p.remplirPlateau(valide.getLigne(), x);
         }
-        p.enregistrer(c);
+        p.enregistrerCellule(c);
         int nbCell = 0;
         for (Cellule cell : p) {
             nbCell++;
