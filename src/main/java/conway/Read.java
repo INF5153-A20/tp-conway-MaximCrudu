@@ -29,15 +29,15 @@ public class Read {
             int dimension = Integer.parseInt(reader.readLine().trim());
 
             contenu = new Plateau();
-            int iter = 0;
+            int nrLigne = 0;
 
-            while (iter < dimension) {
+            while (nrLigne < dimension) {
                 String ligneBrute = reader.readLine();
                 String[] ligne = ligneBrute.trim().split(" ");
 
                 Validation valeurBool = new Validation(ligne);
-                contenu.remplirPlateau(valeurBool.getLigne(), iter);
-                iter++;
+                contenu.remplirPlateau(valeurBool.getLigne(), nrLigne);
+                nrLigne++;
             }
             reader.close();
         } catch (Exception e) {
