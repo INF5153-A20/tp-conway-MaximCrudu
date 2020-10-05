@@ -1,7 +1,66 @@
 @startuml
 
-class Conway {
-	+ {static} main(args: String[])
+class Main {
+   + {static} main(args: String[])
 }
+
+class Read {
+   - fichier: String
+   + entrerDonnees(): Plateau
+}
+
+class Validation {
+   - ligneBool: boolean[]
+   - transformLigne(ligne: String[]): boolean[]
+   + getLigne(): boolean[]
+}
+
+class Plateau{
+  - List<List<Cellule>> grille
+  - List<Cellule> grillePointer
+  + remplirPlateau(etatActuel: boolean[], nrLigne: int)
+  + enregistrerCellule(cellule: Cellule)
+  + getVoisinsVivants(cellule: Cellule): int
+  + afficher()
+  + iterator(): List<Cellule>
+}
+
+class JeuDeLaVie{
+  - plateau: Plateau
+  - nbSimulation: int
+  + simuler()
+}
+
+class Cellule{
+  - emplacement: Coordonee
+  - etatVie: boolean
+  + meurt(): Cellule
+  + prendVie(): Cellule
+  + estVivante(): boolean
+  + estMorte(): boolean
+  + getCoordonneeX(): int
+  + getCoordonneeY(): int
+}
+
+class Coordonnee{
+  - {static} X: int
+  - {static} Y: int
+  + getX(): int
+  + getY(): int
+}
+
+Interface Iterable{
+  + iterator(): Thing
+}
+
+Main --> "1" Read
+Main --> "1" Plateau
+Main --> "1" JeuDeLaVie
+Read --> "*" Validation
+Read --> "1" Plateau
+JeuDeLaVie --> "*" Plateau
+Plateau --> "*" Cellule
+Cellule --> "*" Coordonnee
+Plateau -[dashed]-> " " Iterable
 
 @enduml

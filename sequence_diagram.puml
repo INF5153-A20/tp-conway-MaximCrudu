@@ -2,12 +2,105 @@
 
 hide footbox
 
-participant "Conway" as C
+participant "Main" as M
+participant "r: Read" as R
+participant "v: Validation" as V
+participant "j: JeuDeLaVie" as J
+participant "p: Plateau" as P
+participant "newP: Plateau" as NP
+participant "cel: Cellule" as Cel
+participant "c: Coordonnees" as C
+participant "newCel: Cellule" as NCel
 
-[-> C: main(args: String[])
-activate C
-    ...
-    [<-- C:
-deactivate C
+
+[-> M: main(args: String[])
+activate M
+    M -> R: this(fichier)
+    activate R
+         R --> M
+    deactivate R
+    M -> R: p(r.entrerDonnees())
+    activate R
+        R -> P: this()
+        activate P
+            P --> R
+        deactivate P
+        loop while (readline)
+            R -> V: this(ligne)
+            activate V
+                V --> R
+                R -> P: remplirPlateau(v.getLigne, nrLigne)
+            deactivate V
+            loop for (ligne.length)
+                activate P
+                    P -> Cel: add(this)
+                    activate Cel
+                        Cel -> C: this(x,y)
+                        activate C
+                            C --> Cel
+                        deactivate C
+                        Cel --> P
+                    deactivate Cel
+            end
+        end
+                    P --> R
+                deactivate P
+        R --> M
+    deactivate R
+    M -> J: this(p,nbSimulation)
+    activate J
+        J --> M
+    deactivate J
+    M -> J: j.simuler()
+    activate J
+        loop for (nbSimulation)
+        J -> NP: this()
+        activate NP
+            NP --> J
+        deactivate NP
+        loop for (cel:p)
+        J -> P: getVoisinsVivants(cel)
+        activate P
+            P -> Cel: getCoordX()
+            activate Cel
+                Cel -> C: getX()
+                activate C
+                    C --> Cel
+                deactivate C
+                Cel --> P
+            deactivate Cel
+
+            P -> Cel: getCoordY()
+            activate Cel
+                Cel -> C: getY()
+                activate C
+                    C --> Cel
+                deactivate C
+                Cel --> P
+            deactivate Cel
+            P --> J
+        deactivate P
+        J -> NP: enregistrerCellule(cel)
+        activate NP
+            NP -> NCel:add(cel)
+            activate NCel
+            NCel --> NP
+            deactivate NCel
+
+        deactivate NP
+        end
+        J -> NP:p(newP)
+        activate NP
+            activate P
+            NP --> P
+            deactivate P
+        deactivate NP
+    end
+        J -> P: afficher()
+        activate P
+        deactivate P
+    deactivate J
+    [<-- M:exit()
+deactivate M
 
 @enduml

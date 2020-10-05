@@ -1,7 +1,28 @@
 @startuml
 
-note
-    No objects involved, only a static call.
-end note
+object " " as main
+object "r: Read" as r
+object "v: Validation" as v
+object "p: Plateau" as p
+object "j: JeuDeLaVie" as j
+object "cellule: Cellule" as cellule
+object "c: Coordonnee" as c
+
+main .. r
+main .. p
+main .. j
+r .. v
+p .. cellule
+cellule .. c
+
+
+
+
+
+
+
+
+
+
 
 @enduml
