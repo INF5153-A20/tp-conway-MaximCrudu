@@ -1,7 +1,7 @@
 # Réponses aux questions
 
   - Auteur : Crudu, Maxim (`CRUM05038606`)
-  - Temps passé sur le projet : `x` heures.
+  - Temps passé sur le projet : `38` heures.
 
 ## Question 1
 Suite à l’analyse, on a pu constater que le code en question répond aux exigences de base en termes d'affichage d'un 
@@ -46,11 +46,11 @@ les concepts suivants:
 - **Read**. Vise à lire le contenu du fichier entré dans les paramètres. Dans ce cas, on a voulu créer cette entité 
 pour la séparer de la classe Main. 
 - **Validation**. Cette classe est destinée à valider les caractères contenus dans le fichier. Elle reçoit les lignes 
-lues par la classe Read en validant sont contenu. À ce stade, en fonction des caractères contenus, de nouveaux tableaux
+lues par la classe Read en validant son contenu. À ce stade, en fonction des caractères contenus, de nouveaux tableaux
 contenant les valeurs booléenes correspondantes sont créés.
 - **Plateau**. C'est l'un des concepts de base de ce modèle. En fait, il est composé d'une liste de listes de cellules
  qui reçoit l'information à entrer depuis la classe Read. Cette structure dynamique, à mon avis, serait un avantage dans 
-le cas d'une extension de ce programme. 
+le cas d'une extension de ce programme (avantage par rapport au tableau[][]). 
 - **Cellule**. Également l'un des concepts de base qui contient une valeur concernant l'état de vie, ainsi que ses 
 coordonnées.
 - **Coordonnee**. On a introduit ce concept afin d'identifier plus facilement l'emplacement de la cellule.
@@ -69,3 +69,10 @@ non seulement la validation, mais aussi la création d'une nouvelle structure.
 
 
 ## Question 4
+À mon avis, ce code pourrait être adapté pour simuler ce genre de modèle. Premièrement, on peut créer une classe 
+similaire à JeuDeLaVie mais avec ses propres règles de fonctionnement. Bien sûr, cela ne sera pas entièrement conforme 
+aux règles d'affaire. Parce que, par exemple dans la classe Plateau, il est introduite la notion d'état de vie de la 
+cellule, mais pas la couleur. Le même pour la classe Cellule, ses notions sont étroitement liées au concepts du jeu 
+de la vie. Bien sûr, afin de pouvoir détacher le code d'un modèle de simulation particulier, il faut créer une classe 
+abstraite Plateau qui contiendra les méthodes communes pour ces deux modèles, puis chaque modèle ajout ou/et redéfinit 
+ses propres méthodes dans leurs classes.
